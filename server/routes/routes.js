@@ -9,9 +9,12 @@ mongoose.connect(dbConfig.uri);
 
 // CONTROLLERS
 var returnIndex = require('../controllers/returnIndex');
+var addItem = require('../controllers/addItem');
 
 // ROUTES
 router.get('/', returnIndex);
+
+router.post('/addItem', addItem)
 
 
 module.exports = router;
