@@ -1,15 +1,16 @@
 var mongoose = require('mongoose');
 var User = require('../models/user');
 var Item = require('../models/item');
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 function addItem (req, res) {
 
     // get request information and create item
-    var name = req.body.params.name;
+    var name = req.body.name;
 
-    var title = req.body.params.title;
-    var url = req.body.params.title;
-    var faviconUrl = req.body.params.title;
+    var title = req.body.title;
+    var url = req.body.title;
+    var faviconUrl = req.body.title;
 
     var newItem = new Item({
         'title': title,
@@ -19,22 +20,29 @@ function addItem (req, res) {
 
     // save item and evoke callback with saved item
     newItem.save(function(err, item) {
-        if (err) {
+        if (err)
             console.log(err);
-        } else {
+
+        if (item) {
 
             // find user and add new item ID to list
             User.findOne({'name' : name}, function (err, user) {
-                if (err) {
+                if (err)
                     console.log(err);
-                } else {
-                    user.items.push(new ObjectId(item._id));
-                    user.save()
+
+                if (user) {
+                    user.items.push(item._id);
+                    user.save();
 
                     console.log('Item added!');
                     res.send('Item added!');
+                } else {
+                    console.log('User not found');
                 }
-            }
+            });
+
+        } else {
+            console.log('Item not added');
         }
     });
 
