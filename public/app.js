@@ -4,17 +4,18 @@ angular.module('seenwhatApp', ['ngRoute'])
 .config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider) {
 	    $routeProvider
-/* example view and controller
 		.when('/', {
 	        templateUrl: '/views/splash.html',
 	        controller: 'splashController'
 	    })
-*/
 	    .otherwise({
 	        redirectTo: '/'
 	    });
     //remove # from URL
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 }])
 
 .run(function($route, $rootScope, $location, $routeParams) {
