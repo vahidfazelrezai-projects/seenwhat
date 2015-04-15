@@ -22,7 +22,7 @@ function getTabInfo(callback) {
 
 document.addEventListener('DOMContentLoaded', function() {
   getTabInfo(function(url, title, favIconUrl) {
-    document.getElementById('link').textContent = title;
+    document.getElementById('link').textContent = favIconUrl;
     document.getElementById('link').href = title;
     document.getElementById('favicon').src = favIconUrl;
   });

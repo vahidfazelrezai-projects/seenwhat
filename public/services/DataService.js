@@ -1,7 +1,7 @@
 angular.module('seenwhatApp').factory('DataService', function($http, $q){
 	return {
-        getData: function(path) {
-            return $http.get(path)
+        getData: function(path, paramsToPass) {
+            return $http.get(path, {'params': paramsToPass})
                 .then(function(response) {
                     return response.data;
                 }, function(response) {
@@ -10,7 +10,7 @@ angular.module('seenwhatApp').factory('DataService', function($http, $q){
             );
         },
         postData: function(path, paramsToPass) {
-            return $http.post(path, { params: paramsToPass})
+            return $http.post(path, {'params': paramsToPass})
                 .then(function(response) {
                     return response.data;
                 }, function(response) {

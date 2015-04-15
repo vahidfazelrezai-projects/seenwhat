@@ -4,7 +4,7 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 // define schema for model
 var userSchema = mongoose.Schema({
     name: String,
-    items: [ObjectId]
+    items: [{type: ObjectId, ref: 'Item'}]
 });
 
 // export model

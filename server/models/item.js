@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 // define schema for model
 var itemSchema = mongoose.Schema({
-    title: String,
+    spotter: {type: ObjectId, ref: 'User'},
+    caption: String,
     url: String,
     faviconUrl: String
 });

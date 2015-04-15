@@ -8,6 +8,14 @@ angular.module('seenwhatApp', ['ngRoute'])
 	        templateUrl: '/views/splash.html',
 	        controller: 'splashController'
 	    })
+        .when('/profile/:name', {
+            templateUrl: '/views/profile.html',
+            controller: 'profileController'
+        })
+        .when('/feed', {
+            templateUrl: '/views/feed.html',
+            controller: 'feedController'
+        })
 	    .otherwise({
 	        redirectTo: '/'
 	    });
@@ -23,6 +31,5 @@ angular.module('seenwhatApp', ['ngRoute'])
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
     	//set current variable to template (used in showing/hiding elements)
     	$rootScope.current = next.templateUrl;
-        $location.path("/");
 	});
 })

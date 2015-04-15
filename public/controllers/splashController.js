@@ -1,4 +1,4 @@
-//page controller - controls what the page displays & authentication state
+// controller for splash view
 angular.module('seenwhatApp').controller("splashController", function ($scope, $rootScope, $location, DataService) {
     $scope.name = "Ashin";
 });
