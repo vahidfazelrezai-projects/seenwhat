@@ -20,8 +20,8 @@ router.get('/profile/*', returnIndex);
 router.get('/feed', returnIndex);
 
 // API endpoints
-router.get('/api/getUser', getUser); // params: name // returns: user object
-router.get('/api/getUserItems', getUserItems); // params: name // returns: items list
+router.get('/api/getUser', getUser); // params: name // returns: User object
+router.get('/api/getUserItems', getUserItems); // params: name // returns: list of Item objects
 router.post('/api/addItem', addItem); // params: name, caption, url, faviconUrl // returns: confirmation message
 
 module.exports = router;

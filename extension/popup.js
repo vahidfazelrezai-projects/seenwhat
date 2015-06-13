@@ -10,6 +10,7 @@ function getTabInfo(callback) {
     var url = tab.url;
     var title = tab.title;
     var favIconUrl = tab.favIconUrl;
+    var name;
 
     console.assert(typeof url == 'string', 'tab.url should be a string');
     console.assert(typeof title == 'string', 'tab.title should be a string');
@@ -22,7 +23,6 @@ function getTabInfo(callback) {
 
 document.addEventListener('DOMContentLoaded', function() {
   getTabInfo(function(url, title, favIconUrl) {
-    document.getElementById('link').textContent = favIconUrl;
     document.getElementById('link').href = title;
     document.getElementById('favicon').src = favIconUrl;
   });
