@@ -14,19 +14,19 @@ function addItem (req, res) {
         var caption = req.query.caption;
         var url = req.query.url;
         var faviconUrl = req.query.faviconUrl;
-        var spotter;
+        var owner;
         var newItem;
 
-        // find name to get spotter ID
+        // find name to get owner ID
         User.findOne({'name' : name}, function (err, user) {
             if (err)
                 console.log(err);
 
             if (user) {
-                spotter = user._id;
+                owner = user._id;
                 
                 newItem = new Item({
-                    'spotter': spotter,
+                    'owner': owner,
                     'caption': caption,
                     'url': url,
                     'faviconUrl': faviconUrl

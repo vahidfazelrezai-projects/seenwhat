@@ -1,4 +1,4 @@
-angular.module('seenwhatApp').factory('DataService', function($http, $q){
+angular.module('seenwhatApp').factory('DataService', function($http, $q) {
 	return {
         getData: function(path, paramsToPass) {
             return $http.get(path, {'params': paramsToPass})

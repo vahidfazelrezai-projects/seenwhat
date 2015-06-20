@@ -3,7 +3,7 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 // define schema for model
 var itemSchema = mongoose.Schema({
-    spotter: {type: ObjectId, ref: 'User'},
+    owner: {type: ObjectId, ref: 'User'},
     caption: String,
     url: String,
     faviconUrl: String

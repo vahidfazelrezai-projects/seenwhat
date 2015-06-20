@@ -4,7 +4,14 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 // define schema for model
 var userSchema = mongoose.Schema({
     name: String,
-    items: [{type: ObjectId, ref: 'Item'}]
+    email: String,
+    items: [{type: ObjectId, ref: 'Item'}],
+    google: {
+        id: String,
+        token: String,
+        email: String,
+        name: String
+    }
 });
 
 // export model
